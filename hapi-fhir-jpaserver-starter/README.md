@@ -6,7 +6,7 @@ This project is a complete starter project you can use to deploy a FHIR server u
 
 In order to use this sample, you should have:
 
-* [This project](https://github.com/hapifhir/hapi-fhir-jpaserver-starter) checked out. You may wish to create a GitHub Fork of the project and check that out instead so that you can customize the project and save the results to GitHub.
+* [This project](https://github.com/MeasureAuthoringTool/mat-fhir-jpaserver/hapi-fhir-jpaserver-starter) checked out. You may wish to create a GitHub Fork of the project and check that out instead so that you can customize the project and save the results to GitHub.
 * Oracle Java (JDK) installed: Minimum JDK8 or newer.
 * Apache Maven build tool (newest version)
 
