@@ -67,16 +67,21 @@ FLUSH PRIVILEGES;
 ```
 
 > Copy mat.properties to hapi.properties
-> cp src/main/resources/mat.properties src/main/resources/hapi.properties
+```
+cp src/main/resources/mat.properties src/main/resources/hapi.properties
+```
 
 > Build the project.
-> mvn clean install -DskipTests
-> Redeploy war
+```
+mvn clean install -DskipTests
+Redeploy war
 The hapi_dstu3 database tables will be automatically generated on successful deploy of war.
+```
 
 > If you wish to return to using Derby
-> cp src/main/resources/hapi.orig.properties src/main/resources/hapi.properties
-> mvn clean install -DskipTests
-> redeploy war
-
+```
+cp src/main/resources/hapi.orig.properties src/main/resources/hapi.properties
+mvn clean install -DskipTests
+redeploy war
+```
 It is important to use MySQL5Dialect when using MySQL version 5+.
