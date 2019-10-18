@@ -61,8 +61,8 @@ To configure the starter app to use MySQL, instead of the default Derby:
 > Add user and database on your mysql server via mysql cli
 ```
 CREATE USER 'hapiDbUser'@'localhost' IDENTIFIED BY 'hapiDbPass';
-CREATE DATABASE hapi_dstu3;
-GRANT ALL PRIVILEGES ON hapi_dstu3.* to 'hapiDbUser'@'localhost';
+CREATE DATABASE hapi_r4;
+GRANT ALL PRIVILEGES ON hapi_r4.* to 'hapiDbUser'@'localhost';
 FLUSH PRIVILEGES;
 ```
 
@@ -75,7 +75,7 @@ cp src/main/resources/mat.properties src/main/resources/hapi.properties
 ```
 mvn clean install -DskipTests
 Redeploy war
-The hapi_dstu3 database tables will be automatically generated on successful deploy of war.
+The hapi_r4 database tables will be automatically generated on successful deploy of war.
 ```
 
 > If you wish to return to using Derby
