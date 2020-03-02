@@ -1,0 +1,30 @@
+pipeline {
+  agent any
+
+  stages {
+
+    stage('Build MAT fhir-jpaserver') {
+        steps {
+            dir('hapi-fhir-jpaserver-starter'){
+                sh "ls -l"
+                sh "mvn clean install -DskipTests"
+            }
+        }
+    }
+
+    stage('Log Into ECR'){
+      steps {
+        sh "\$(aws ecr get-login --no-include-email --region us-east-1)"
+      }
+    }
+    stage('Push to ECR') {
+      steps {
+        dir('hapi-fhir-jpaserver-starter'){
+          sh "docker build -t ${ECR_REPO} ."
+          sh "docker tag ${ECR_REPO} ${ECR_URL}/${ECR_REPO}:latest"
+          sh "docker push ${ECR_URL}/${ECR_REPO}:latest"
+        }
+      }
+    }
+  }
+}
