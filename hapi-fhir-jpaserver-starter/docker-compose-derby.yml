@@ -1,0 +1,10 @@
+version: "3"
+services:
+  hapi-fhir-jpaserver-start:
+    build: .
+    container_name: hapi-fhir-jpaserver-start
+    restart: on-failure
+    ports:
+      - 6060:6060
+volumes:
+  hapi-fhir-mysql:

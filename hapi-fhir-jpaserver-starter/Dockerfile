@@ -1,8 +1,4 @@
-FROM tomcat:9-jre8
-ARG WAR_FILE=target/hapi-fhir-jpaserver.war
-RUN mkdir -p /data/hapi/lucenefiles && chmod 775 /data/hapi/lucenefiles
-COPY ${WAR_FILE} /usr/local/tomcat/webapps/
-
-EXPOSE 8080
-
+FROM tomcat:9.0.31-jdk11-openjdk
+RUN sed -i 's/port="8080"/port="6060"/' /usr/local/tomcat/conf/server.xml
+ADD target/hapi-fhir-jpaserver.war /usr/local/tomcat/webapps/
 CMD ["catalina.sh", "run"]
